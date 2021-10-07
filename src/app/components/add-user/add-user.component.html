@@ -1,0 +1,266 @@
+<div class="card m-3">
+  <h5 class="card-header">Use Details</h5>
+  <div class="card-body">
+    <form [formGroup]="userForm" (ngSubmit)="saveUserDetails()">
+      <div formGroupName="basicInfo">
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label>Name</label>
+            <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              placeholder="type here..."
+              required
+              [ngClass]="{
+                'is-invalid': basicInfoSubmitted && f.name.errors
+              }"
+            />
+            <div
+              *ngIf="basicInfoSubmitted && f.name.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>
+          </div>
+          <br />
+          <div class="form-group col-6">
+            <label>User Name</label>
+            <input
+              type="text"
+              formControlName="username"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': basicInfoSubmitted && f.username.errors
+              }"
+            />
+            <div
+              *ngIf="basicInfoSubmitted && f.username.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.username.errors.required">username is required</div>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': basicInfoSubmitted && f.email.errors }"
+          />
+          <div
+            *ngIf="basicInfoSubmitted && f.email.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Phone</label>
+          <input
+            type="text"
+            formControlName="phone"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': basicInfoSubmitted && f.phone.errors }"
+          />
+          <div
+            *ngIf="basicInfoSubmitted && f.phone.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.phone.errors.required">phone is required</div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Website</label>
+          <input
+            type="text"
+            formControlName="website"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': basicInfoSubmitted && f.website.errors }"
+          />
+          <div
+            *ngIf="basicInfoSubmitted && f.website.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.website.errors.required">website is required</div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <h2>Address Details</h2>
+      <br />
+      <div formGroupName="addressInfo">
+        <div class="form-group">
+          <label>Street</label>
+          <input
+            type="text"
+            formControlName="street"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': addressInfoSubmitted && fa.street.errors
+            }"
+          />
+          <div
+            *ngIf="addressInfoSubmitted && fa.street.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fa.street.errors.required">street is required</div>
+          </div>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label>Suite</label>
+          <input
+            type="text"
+            formControlName="suite"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': addressInfoSubmitted && fa.suite.errors
+            }"
+          />
+          <div
+            *ngIf="addressInfoSubmitted && fa.suite.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fa.suite.errors.required">suite is required</div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>City</label>
+          <input
+            type="text"
+            formControlName="city"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': addressInfoSubmitted && fa.city.errors }"
+          />
+          <div
+            *ngIf="addressInfoSubmitted && fa.city.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fa.city.errors.required">city is required</div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Zipcode</label>
+          <input
+            type="text"
+            formControlName="zipcode"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': addressInfoSubmitted && fa.zipcode.errors
+            }"
+          />
+          <div
+            *ngIf="addressInfoSubmitted && fa.zipcode.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fa.zipcode.errors.required">zipcode is required</div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div formGroupName="geoInfo">
+        <h2>Geo Details</h2>
+        <div class="form-group">
+          <label>lat</label>
+          <input
+            type="text"
+            formControlName="lat"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': geoInfoSubmitted && fg.lat.errors }"
+          />
+          <div
+            *ngIf="geoInfoSubmitted && fg.lat.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fg.lat.errors.required">lat is required</div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>lng</label>
+          <input
+            type="text"
+            formControlName="lng"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': geoInfoSubmitted && fg.lng.errors }"
+          />
+          <div
+            *ngIf="geoInfoSubmitted && fg.lng.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fg.lng.errors.required">lng is required</div>
+          </div>
+        </div>
+        <br />
+      </div>
+      <h2>Company</h2>
+      <div formGroupName="companyInfo">
+        <div class="form-group">
+          <label>Name</label>
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': companyInfoSubmitted && fc.name.errors }"
+          />
+          <div
+            *ngIf="companyInfoSubmitted && fc.name.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fc.name.errors.required">name is required</div>
+          </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+          <label>Catch Phrase</label>
+          <input
+            type="text"
+            formControlName="catchPhrase"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': companyInfoSubmitted && fc.name.errors }"
+          />
+          <div
+            *ngIf="companyInfoSubmitted && fc.catchPhrase.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fc.catchPhrase.errors.required">
+              catchPhrase is required
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label>Bs</label>
+          <input
+            type="text"
+            formControlName="bs"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': companyInfoSubmitted && fc.bs.errors }"
+          />
+          <div
+            *ngIf="companyInfoSubmitted && fc.bs.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="fc.bs.errors.required">bs is required</div>
+          </div>
+        </div>
+        <br />
+      </div>
+      <button class="btn btn-primary">Add/Update User</button>
+    </form>
+  </div>
+</div>
