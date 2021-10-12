@@ -34,7 +34,13 @@ export class AddUserComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
+  currentCount: number;
   ngOnInit() {
+    //count code
+    this.service.getCount().subscribe((res) => {
+      this.currentCount = res.value;
+    });
+
     this.userId = this.route.snapshot.params['id'];
     //alert(this.userId);
     this.isAddMode = !this.userId;
@@ -47,7 +53,7 @@ export class AddUserComponent implements OnInit {
         ]),
         username: new FormControl(null, [Validators.required]),
         email: new FormControl(null, [Validators.required, Validators.email]),
-        phone: new FormControl(null, [Validators.required,Validators.min(6)]),
+        phone: new FormControl(null, [Validators.required, Validators.min(6)]),
         website: new FormControl(null, [Validators.required]),
       }),
       addressInfo: this.formBuilder.group({
@@ -190,5 +196,13 @@ export class AddUserComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  increment(): void {
+    this.service.setCount(this.currentCount, 1);
+  }
+
+  decrement(): void {
+    this.service.setCount(this.currentCount, -1);
   }
 }
