@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-p-child',
@@ -8,8 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PChildComponent implements OnInit {
   @Input() childMessage: string;
 
-  message = 'from child to parent';
+  message = 'shared data from child to parent';
   constructor() {}
 
   ngOnInit() {}
+
+  @Output() messageEvent = new EventEmitter<string>();
+
+  sendMessage() {
+    this.messageEvent.emit(this.message);
+  }
 }

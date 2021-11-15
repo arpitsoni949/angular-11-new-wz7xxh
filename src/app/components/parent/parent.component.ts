@@ -6,16 +6,21 @@ import { PChildComponent } from './p-child/p-child.component';
   templateUrl: './parent.component.html',
   styleUrls: ['./parent.component.css'],
 })
-export class ParentComponent implements AfterViewInit {
+export class ParentComponent implements OnInit {
   parentMessage = 'Hi its a shared data from Parent';
 
   constructor() {}
 
-  @ViewChild(PChildComponent) child;
+  // @ViewChild(PChildComponent) child: PChildComponent;
   message: string;
-  ngAfterViewInit(): void {
-    this.message = this.child.message;
-  }
+  // ngAfterViewInit() {
+  //   this.message = this.child.message;
+  //   alert('AfterViewInit' + this.child.message);
+  // }
 
+  receiveMessage($event) {
+    this.message = $event;
+    alert(this.message);
+  }
   ngOnInit() {}
 }

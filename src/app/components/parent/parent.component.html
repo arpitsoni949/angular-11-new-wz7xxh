@@ -1,3 +1,6 @@
 <p>parent works!</p>
-<app-p-child [childMessage]="parentMessage"></app-p-child>
-{{ message }}
+
+<app-p-child
+  [childMessage]="parentMessage"
+  (messageEvent)="receiveMessage($event)"
+></app-p-child>

@@ -8,7 +8,7 @@ import { ParentComponent } from './components/parent/parent.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'test', pathMatch: 'full' },
-  { path: 'test', component: PChildComponent },
+  { path: 'test', component: ParentComponent },
   { path: 'users', component: UserListComponent },
   { path: 'user/:id', component: AddUserComponent },
   { path: 'add', component: AddUserComponent },
