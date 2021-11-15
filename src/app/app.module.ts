@@ -16,6 +16,8 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AgGridComponent } from './components/ag-grid/ag-grid.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PChildComponent } from './components/parent/p-child/p-child.component';
+import { ParentComponent } from './components/parent/parent.component';
 
 @NgModule({
   imports: [
@@ -38,6 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserListComponent,
     AddUserComponent,
     AgGridComponent,
+    PChildComponent,
+    ParentComponent,
   ],
   bootstrap: [AppComponent],
   providers: [CommonServiceService],
