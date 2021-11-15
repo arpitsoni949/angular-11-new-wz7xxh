@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { PChildComponent } from './p-child/p-child.component';
 
 @Component({
   selector: 'app-parent',
   templateUrl: './parent.component.html',
-  styleUrls: ['./parent.component.css']
+  styleUrls: ['./parent.component.css'],
 })
-export class ParentComponent implements OnInit {
-  parentMessage="Hi its a shared data from Parent";
+export class ParentComponent implements AfterViewInit {
+  parentMessage = 'Hi its a shared data from Parent';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  @ViewChild(PChildComponent) child;
+  message: string;
+  ngAfterViewInit(): void {
+    this.message = this.child.message;
   }
 
+  ngOnInit() {}
 }
